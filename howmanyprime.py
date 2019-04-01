@@ -39,7 +39,7 @@ def tryMain():
         input("\n\nInterruction detected! Press any key to continue")
         printList(primeNumberList)
         lastPrime = primeNumberList.pop()
-        print("","Da 0 a ",lastPrime," ci sono ",countList(primeNumberList)," numeri primi")
+        print("\nDa 0 a ",lastPrime," ci sono ",countList(primeNumberList)," numeri primi")
         calcRatio(lastPrime,countList(primeNumberList))
 
 def calcRatio(numbers, numberOfPrimes):
@@ -47,8 +47,7 @@ def calcRatio(numbers, numberOfPrimes):
     print("The ratio is ",ratio)
 
 tryMain()
-#while input("Do you wish to continue?").lower() == "y":
-while True:
+while input("Do you wish to continue?").lower() == "y":
     primeNumberList.clear()
     primeNumberList = [2]
     tryMain()
