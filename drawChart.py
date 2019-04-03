@@ -1,5 +1,10 @@
+import matplotlib.pyplot as plt 
+
 primeNumberList = [2]
+numberList = [0,1,2]
+amountOfPrimes = [0,1,2]
 c = 3
+
 def getMax():
     try:
         i = int(input("Insert Max value: "))
@@ -12,10 +17,11 @@ def printList(list):
     for i in list:
         print(i)
 def countList(list):
-    count = 0
+    count = 1
     for i in list:
         count += 1
     return count
+
 def main():
     c = 3
     max = getMax()
@@ -25,12 +31,10 @@ def main():
             if(c % primeNumber == 0):
                 isPrimeNumber = False
         if(isPrimeNumber):
-            primeNumberList.append(c)
-        #print(c)
+            primeNumberList.append(c)      
+        numberList.append(c)
+        amountOfPrimes.append(countList(primeNumberList))
         c +=1
-    #printList(primeNumberList)
-    print("\n\n\n","Da 0 a ",c-1," ci sono ",countList(primeNumberList)," numeri primi")
-    calcRatio(c-1,countList(primeNumberList))
 
 def tryMain():
     try:   
@@ -39,15 +43,10 @@ def tryMain():
         input("\n\nInterruction detected! Press any key to continue")
         printList(primeNumberList)
         lastPrime = primeNumberList.pop()
-        print("\nDa 0 a ",lastPrime," ci sono ",countList(primeNumberList)," numeri primi")
-        calcRatio(lastPrime,countList(primeNumberList))
-
-def calcRatio(numbers, numberOfPrimes):
-    ratio = numberOfPrimes/numbers
-    print("The ratio is ",ratio)
 
 tryMain()
-while input("Do you wish to continue?").lower() == "y":
-    primeNumberList.clear()
-    primeNumberList = [2]
-    tryMain()
+plt.plot(numberList,amountOfPrimes)
+plt.xlabel('Numbers') 
+plt.ylabel('Primes') 
+plt.title('Numbers and Primes') 
+plt.show() 
